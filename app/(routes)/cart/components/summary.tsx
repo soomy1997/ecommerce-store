@@ -14,6 +14,7 @@ const Summary = () => {
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
 
+
   useEffect(() => {
     if (searchParams.get('success')) {
       toast.success('Payment completed.');
@@ -37,7 +38,8 @@ const Summary = () => {
 
       window.location.href = response.data.url;
     } catch (error) {
-      toast.error('Failed to initiate payment.');
+      toast.error('Failed to initiate payment.' + error);
+
     }
   }
 
